@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Cast:jar3">
+    <output-path>$PROJECT_DIR$/../Writer/libs</output-path>
+    <root id="archive" name="Cast.jar">
+      <element id="module-output" name="Cast" />
+    </root>
+  </artifact>
+</component>
