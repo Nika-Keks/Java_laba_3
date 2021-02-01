@@ -140,7 +140,7 @@ public class Manager {
     // this method is called only in createConveyor and only in try-catch block
     private <T extends IConfigurable> T createWorker(String workerName, String workerCfg)
             throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-
+        
         logger.info(LogMsg.TRY_CREATE_WORKER.msg + ": " + workerName);
         Class<?> workerClass = Class.forName(workerName);
         T worker = (T)workerClass.getConstructor(Logger.class).newInstance(logger);
