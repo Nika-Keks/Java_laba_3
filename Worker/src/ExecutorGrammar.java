@@ -6,3 +6,13 @@ public class ExecutorGrammar extends BaseGrammar{
     }
 
 }
+
+enum EGIndexes{
+    END_LINE,
+    EXE_MODE,
+    ENCODE,
+    DECODE,
+    R_BORDER,
+    L_BORDER,
+    EPS;
+}

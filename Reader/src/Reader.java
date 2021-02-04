@@ -93,9 +93,9 @@ public class Reader implements IReader{
         HashMap<String,String> cfgParam =
                 SyntacticalAnalyser.getValidExpr(cfgPath,
                         grammar.delimiter(),
-                        grammar.token(0));
+                        grammar.token(RGIndexes.END_LINE.ordinal()));
 
-        nProcBytes = SemanticAnalyser.getInteger(cfgParam, grammar.token(1));
+        nProcBytes = SemanticAnalyser.getInteger(cfgParam, grammar.token(RGIndexes.BUF_SIZE.ordinal()));
         if (nProcBytes == null){
             logger.severe(LogMsg.INVALID_CONFIG_DATA.msg);
             return RC.CODE_CONFIG_SEMANTIC_ERROR;

@@ -31,15 +31,18 @@ public class Manager {
 
         ArrayDeque<String> workersNames = new ArrayDeque<>();
         ArrayDeque<String> workersCfg = new ArrayDeque<>();
-        fillPLSData(variableMap, workersNames, workersCfg);
-
-        String inputPath = variableMap.get(grammar.token(5));
-        String outputPath = variableMap.get(grammar.token(6));
+        RC rc = fillPLSData(variableMap, workersNames, workersCfg);
+        if (rc != RC.CODE_SUCCESS) {
+            logger.severe(rc.name());
+            return rc;
+        }
+        String inputPath = variableMap.get(grammar.token(MGIndexes.INPUT_PATH.ordinal()));
+        String outputPath = variableMap.get(grammar.token(MGIndexes.OUTPUT_PATH.ordinal()));
 
         try {
             IReader reader = createWorker(workersNames.pollFirst(), workersCfg.pollFirst());
             reader.setProducer(null);
-            RC rc = setInputStream(reader, inputPath);
+            rc = setInputStream(reader, inputPath);
             if (rc != RC.CODE_SUCCESS)
                 return rc;
 
@@ -77,30 +80,36 @@ public class Manager {
     }
 
     // method fillPLSData fills Dequeues with worker's names ard configs from manager config
-    private void fillPLSData(HashMap<String, String> variableMap, ArrayDeque<String> workersNames, ArrayDeque<String> workersCfg){
+    private RC fillPLSData(HashMap<String, String> variableMap, ArrayDeque<String> workersNames, ArrayDeque<String> workersCfg){
 
-        String readerName = grammar.token(1);
-        String readerCfg = grammar.token(4) + grammar.token(1);
-        if (varInDeque(variableMap, workersNames, readerName) != RC.CODE_SUCCESS ||
-            varInDeque(variableMap, workersCfg, readerCfg) != RC.CODE_SUCCESS)
-            return;
+        String readerName = grammar.token(MGIndexes.READER.ordinal());
+        String readerCfg = grammar.token(MGIndexes.CFG_PREFIX.ordinal()) + grammar.token(MGIndexes.READER.ordinal());
+        RC rc = varInDeque(variableMap, workersNames, readerName);
+        if (rc != RC.CODE_SUCCESS)
+            return rc;
+        rc = varInDeque(variableMap, workersCfg, readerCfg);
+        if (rc != RC.CODE_SUCCESS)
+            return rc;
 
         int i = 1;
         while(true){
-            String nextWorkerName = grammar.token(2) + Integer.toString(i);
-            String nextWorkerCfg = grammar.token(4) + grammar.token(2) + Integer.toString(i);
+            String nextWorkerName = grammar.token(MGIndexes.EXECUTOR.ordinal()) + Integer.toString(i);
+            String nextWorkerCfg = grammar.token(MGIndexes.CFG_PREFIX.ordinal()) + grammar.token(MGIndexes.EXECUTOR.ordinal()) + Integer.toString(i);
             if (varInDeque(variableMap, workersNames, nextWorkerName) != RC.CODE_SUCCESS ||
                 varInDeque(variableMap, workersCfg, nextWorkerCfg) != RC.CODE_SUCCESS)
                 break;
             i++;
         }
 
-        String writerName = grammar.token(3);
-        String writerCfg = grammar.token(4) + grammar.token(3);
-        if (varInDeque(variableMap, workersNames, writerName) != RC.CODE_SUCCESS ||
-            varInDeque(variableMap, workersCfg, writerCfg) != RC.CODE_SUCCESS) {
-        }
-
+        String writerName = grammar.token(MGIndexes.WRITER.ordinal());
+        String writerCfg = grammar.token(MGIndexes.CFG_PREFIX.ordinal()) + grammar.token(MGIndexes.WRITER.ordinal());
+        rc = varInDeque(variableMap, workersNames, writerName);
+        if (rc != RC.CODE_SUCCESS)
+            return rc;
+        rc = varInDeque(variableMap, workersCfg, writerCfg);
+        if (rc != RC.CODE_SUCCESS)
+            return rc;
+        return RC.CODE_SUCCESS;
     }
 
     private RC varInDeque(HashMap<String, String> variableMap, ArrayDeque<String> workersNames, String token){

@@ -6,30 +6,40 @@ public class Cast {
     public static byte[] shortToByte(short[] shorts){
         ByteBuffer buffer = ByteBuffer.allocate(shorts.length * 2);
         buffer.asShortBuffer().put(shorts);
-        return buffer.array();
+        byte[] bytes = new byte[shorts.length * 2];
+        for (int i = 0; i < shorts.length; i++){
+            bytes[2 * i] = buffer.get(2 * i);
+            bytes[2 * i + 1] = buffer.get(2 * i + 1);
+        }
+        return bytes;
     }
 
     public static byte[] charToByte(char[] chars){
         ByteBuffer buffer = ByteBuffer.allocate(chars.length * 2);
         buffer.asCharBuffer().put(chars);
-        return buffer.array();
+        byte[] bytes = new byte[chars.length * 2];
+        for (int i = 0; i < chars.length; i++){
+            bytes[2 * i] = buffer.get(2 * i);
+            bytes[2 * i + 1] = buffer.get(2 * i + 1);
+        }
+        return bytes;
     }
 
     public static char[] byteToChar(byte[] bytes){
         ByteBuffer buffer = ByteBuffer.wrap(bytes);
-        char[] charArr = new char[bytes.length / 2];
+        char[] chars = new char[bytes.length / 2];
         for (int i = 0; i < bytes.length / 2; i++){
-            charArr[i] = buffer.asCharBuffer().get();
+            chars[i] = buffer.asCharBuffer().get(i);
         }
-        return charArr;
+        return chars;
     }
 
     public static short[] byteToShort(byte[] bytes){
         ByteBuffer buffer = ByteBuffer.wrap(bytes);
-        short[] shortArr = new short[bytes.length / 2];
+        short[] shorts = new short[bytes.length / 2];
         for (int i = 0; i < bytes.length / 2; i++){
-            shortArr[i] = buffer.asShortBuffer().get();
+            shorts[i] = buffer.asShortBuffer().get(i);
         }
-        return shortArr;
+        return shorts;
     }
 }

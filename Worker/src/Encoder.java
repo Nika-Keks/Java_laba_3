@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-import ru.spbstu.pipeline.IConsumer;
 import ru.spbstu.pipeline.RC;
 
 
@@ -23,15 +22,15 @@ public class Encoder {
 
         ExecutorGrammar grammar = new ExecutorGrammar();
 
-        rightBorder = SemanticAnalyser.getDouble(cfgParam, grammar.token(4));
-        leftBorder = SemanticAnalyser.getDouble(cfgParam, grammar.token(5));
-        eps = SemanticAnalyser.getDouble(cfgParam, grammar.token(6));
+        rightBorder = SemanticAnalyser.getDouble(cfgParam, grammar.token(EGIndexes.R_BORDER.ordinal()));
+        leftBorder = SemanticAnalyser.getDouble(cfgParam, grammar.token(EGIndexes.L_BORDER.ordinal()));
+        eps = SemanticAnalyser.getDouble(cfgParam, grammar.token(EGIndexes.EPS.ordinal()));
 
         if (eps == null || rightBorder == null || leftBorder == null || rightBorder <= leftBorder){
             logger.severe(LogMsg.INVALID_CONFIG_DATA.msg);
             return RC.CODE_CONFIG_GRAMMAR_ERROR;
         }
-        //logger.info(LogMsg.SUCCESS.msg);
+        logger.info(LogMsg.SUCCESS.msg);
         return RC.CODE_SUCCESS;
     }
 

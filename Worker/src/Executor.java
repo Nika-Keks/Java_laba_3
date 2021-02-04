@@ -1,10 +1,5 @@
 import ru.spbstu.pipeline.*;
 
-import java.io.BufferedWriter;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.ShortBuffer;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.logging.Logger;
@@ -59,15 +54,15 @@ public class Executor implements IExecutor{
         HashMap<String,String> cfgParam =
                 SyntacticalAnalyser.getValidExpr(cfgPath,
                         grammar.delimiter(),
-                        grammar.token(0));
+                        grammar.token(EGIndexes.END_LINE.ordinal()));
 
-        if (cfgParam.get(grammar.token(1)) == null)
+        if (cfgParam.get(grammar.token(EGIndexes.EXE_MODE.ordinal())) == null)
             return RC.CODE_CONFIG_SEMANTIC_ERROR;
 
-        exeMode = cfgParam.get(grammar.token(1));
-        if (exeMode.equals(grammar.token(2)))
+        exeMode = cfgParam.get(grammar.token(EGIndexes.EXE_MODE.ordinal()));
+        if (exeMode.equals(grammar.token(EGIndexes.ENCODE.ordinal())))
             return encoder.setConfig(cfgParam);
-        if (exeMode.equals(grammar.token(3)))
+        if (exeMode.equals(grammar.token(EGIndexes.DECODE.ordinal())))
             return RC.CODE_SUCCESS;
         return RC.CODE_CONFIG_GRAMMAR_ERROR;
     }
@@ -93,6 +88,8 @@ public class Executor implements IExecutor{
                     type = type1;
                     break;
                 }
+                if (type != null)
+                    break;
             }
         }
         if (type == null){

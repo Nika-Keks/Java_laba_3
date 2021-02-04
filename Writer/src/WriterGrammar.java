@@ -5,3 +5,7 @@ public class WriterGrammar extends BaseGrammar {
         super(new String[] {";"});
     }
 }
+
+enum WGIndexes{
+    END_LINE;
+}

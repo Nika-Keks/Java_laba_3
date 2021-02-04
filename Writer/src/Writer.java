@@ -1,5 +1,3 @@
-import java.nio.ByteBuffer;
-import java.util.HashMap;
 import java.util.logging.Logger;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -58,6 +56,8 @@ public class Writer implements IWriter{
                     type = type1;
                     break;
                 }
+                if (type != null)
+                    break;
             }
         }
         if (type == null){
