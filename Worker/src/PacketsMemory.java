@@ -10,7 +10,7 @@ public class PacketsMemory{
     static final Logger logger = Logger.getLogger(PacketsMemory.class.getName());
 
     public void addData(byte[] nextData){
-        if (allData.size() == 0 || allData.peekFirst().length >= 4) {
+        if (allData.size() == 0 || allData.peekFirst().length >= Integer.SIZE / Byte.SIZE) {
             allData.addFirst(nextData);
             return;
         }
@@ -29,7 +29,7 @@ public class PacketsMemory{
     {
         if (allData.size() == 0)
             return 0;
-        ByteBuffer packSizeBuf = ByteBuffer.wrap(Arrays.copyOfRange(allData.peekLast(), 0, 4));
+        ByteBuffer packSizeBuf = ByteBuffer.wrap(Arrays.copyOfRange(allData.peekLast(), 0, Integer.SIZE / Byte.SIZE));
         return packSizeBuf.getInt();
     }
 

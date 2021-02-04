@@ -126,8 +126,8 @@ public class Encoder {
     /* the method pack encode text and decoding data in byte array*/
     private byte[] packToBytes(double[] encodeText, int textLen){
         final int byteSize = 1;
-        final int intSize = 4;
-        final int doubleSize = 8;
+        final int intSize = Integer.SIZE / Byte.SIZE;
+        final int doubleSize = Double.SIZE / Byte.SIZE;
 
         ByteDouPair[] pairArr = HashToPairArr();
         Arrays.sort(pairArr);

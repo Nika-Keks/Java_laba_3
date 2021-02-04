@@ -116,9 +116,9 @@ public class Executor implements IExecutor{
         else if(type.equals(TYPE.BYTE))
             inputData = (byte[])data;
 
-        if (exeMode.equals(grammar.token(2)))
+        if (exeMode.equals(grammar.token(EGIndexes.ENCODE.ordinal())))
             nextDataPiece = encoder.encode(inputData);
-        else if (exeMode.equals(grammar.token(3)))
+        else if (exeMode.equals(grammar.token(EGIndexes.DECODE.ordinal())))
             nextDataPiece = decoder.decode(inputData);
 
         return consumer.execute();

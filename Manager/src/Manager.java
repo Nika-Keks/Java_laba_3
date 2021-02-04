@@ -17,7 +17,7 @@ public class Manager {
     public Manager(String cfgPath) {
         HashMap<String, String> variableMap = SyntacticalAnalyser.getValidExpr(cfgPath,
                 grammar.delimiter(),
-                grammar.token(0));
+                grammar.token(MGIndexes.END_LINE.ordinal()));
         RC rc = createConveyor(variableMap);
         if (rc != RC.CODE_SUCCESS) {
             pipelineStart = null;

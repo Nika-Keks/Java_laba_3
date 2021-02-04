@@ -25,35 +25,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04c91841-845f-4dfe-9004-d1573227fa0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Cast/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cast/out/production/Cast/Cast.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Cast/out/production/Cast/Cast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cast/src/Cast.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cast/src/Cast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Manager/Manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Manager/Manager.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Manager/artefacts/Reader.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Manager/artefacts/Reader.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Manager/artefacts/Worker.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Manager/artefacts/Worker.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Manager/artefacts/Writer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Manager/artefacts/Writer.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Manager/configs/worker's_configs/foreign_exe_cfg.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Manager/configs/worker's_configs/foreign_exe_cfg.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Manager/out/production/Manager/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Manager/out/production/Manager/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Manager/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Manager/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Manager/src/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Manager/src/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Manager/src/ManagerGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Manager/src/ManagerGrammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Reader/libs/Cast.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Reader/libs/Cast.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Reader/out/production/Reader/Reader.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Reader/out/production/Reader/Reader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Reader/src/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Reader/src/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Reader/src/ReaderGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Reader/src/ReaderGrammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worker/libs/Cast.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker/libs/Cast.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Worker/out/production/Worker/Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker/out/production/Worker/Encoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worker/out/production/Worker/Executor$ByteMediator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker/out/production/Worker/Executor$ByteMediator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Worker/out/production/Worker/Executor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker/out/production/Worker/Executor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Worker/src/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker/src/Decoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Worker/src/Encoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker/src/Encoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Worker/src/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker/src/Executor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worker/src/ExecutorGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker/src/ExecutorGrammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Worker/src/PacketsMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker/src/PacketsMemory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/Cast.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/Cast.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Writer/Writer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Writer/Writer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WriterGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WriterGrammar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

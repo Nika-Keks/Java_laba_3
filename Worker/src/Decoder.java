@@ -3,7 +3,7 @@ import java.util.logging.Logger;
 
 
 public class Decoder{
-    final int doubleSize = 8;
+    final int doubleSize = Double.SIZE / Byte.SIZE;
     double leftBorder;
     double rightBorder;
     int textLen;
@@ -105,18 +105,14 @@ public class Decoder{
 
         try {
             double newSegmentR = movePointFromTo(globalSegment, curSegment, workingSegment[i].rBorder);
-            // 1 / k * (workingSegment[i].rBorder - leftBorder)  + curSegment[0];
             if (i != 0){
                 double newSegmentL = movePointFromTo(globalSegment, curSegment, workingSegment[i - 1].rBorder);
-                // 1 / k * (workingSegment[i - 1].rBorder - leftBorder)  + curSegment[0];
                 curSegment[0] = newSegmentL;
             }
             curSegment[1] = newSegmentR;
         }catch(ArrayIndexOutOfBoundsException ex)
         {
-            System.out.println(ex.getMessage());
-            System.out.println("File can not be decoded");
-            System.exit(0);
+            logger.severe(LogMsg.INVALID_INPUT_STREAM.msg);
         }
 
         return workingSegment[i].symbol;
